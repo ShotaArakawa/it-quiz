@@ -1,0 +1,430 @@
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --text: #1d2433;
+  --muted: #667085;
+  --line: #dfe4ee;
+  --accent: #2554c7;
+  --accent-soft: #e4ebfb;
+  --ok: #15803d;
+  --ok-soft: #e3f5e8;
+  --ng: #b91c1c;
+  --ng-soft: #fde4e4;
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12151c;
+    --panel: #1b2029;
+    --text: #e9edf5;
+    --muted: #98a2b3;
+    --line: #2f3746;
+    --accent: #7aa2ff;
+    --accent-soft: #1f2b48;
+    --ok: #4ade80;
+    --ok-soft: #15301f;
+    --ng: #f87171;
+    --ng-soft: #3b1c1c;
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a {
+  color: var(--accent);
+}
+
+h1 {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-size: 1.05rem;
+  margin: 24px 0 8px;
+}
+
+.app {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px 32px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.logo-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.site-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-footer {
+  margin-top: 32px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.hero {
+  padding: 8px 0 16px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+.panel,
+.set-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.center {
+  text-align: center;
+}
+
+.review-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.review-card.is-empty {
+  background: var(--panel);
+  border-color: var(--line);
+}
+
+.review-card .count {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.set-list,
+.choices,
+.wrong-list,
+.bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.set-list {
+  display: grid;
+  gap: 12px;
+}
+
+.set-card p {
+  margin: 4px 0;
+}
+
+.set-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.badge.owned {
+  background: var(--ok-soft);
+  color: var(--ok);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.button {
+  display: inline-block;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--accent);
+}
+
+.button.danger {
+  background: transparent;
+  border-color: var(--ng);
+  color: var(--ng);
+}
+
+.quiz-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.note {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: #92400e;
+}
+
+.progress-bar {
+  height: 4px;
+  background: var(--line);
+  border-radius: 999px;
+  margin: 8px 0 16px;
+  overflow: hidden;
+}
+
+.progress-bar div {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.2s;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 4px;
+  padding: 0 6px;
+  margin: 0 0 4px;
+}
+
+.question {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.choices {
+  display: grid;
+  gap: 8px;
+}
+
+.choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.choice:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.choice:disabled {
+  cursor: default;
+}
+
+.choice-label {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.choice.is-correct {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+}
+
+.choice.is-wrong {
+  border-color: var(--ng);
+  background: var(--ng-soft);
+}
+
+.choice.is-dim {
+  opacity: 0.55;
+}
+
+.feedback {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+}
+
+.feedback.ok {
+  background: var(--ok-soft);
+}
+
+.feedback.ok strong {
+  color: var(--ok);
+}
+
+.feedback.ng {
+  background: var(--ng-soft);
+}
+
+.feedback.ng strong {
+  color: var(--ng);
+}
+
+.feedback p {
+  margin: 6px 0 12px;
+}
+
+.hint {
+  font-size: 0.8rem;
+  margin: 16px 0 0;
+}
+
+@media (hover: none) {
+  .hint {
+    display: none;
+  }
+}
+
+.score {
+  font-size: 1.1rem;
+}
+
+.score strong {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.wrong-list {
+  display: grid;
+  gap: 8px;
+}
+
+.wrong-list li {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.stat strong {
+  font-size: 1.5rem;
+}
+
+.bars {
+  display: grid;
+  gap: 10px;
+}
+
+.bar-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.bar {
+  height: 8px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar div {
+  height: 100%;
+  background: var(--accent);
+}
+
+.ad-slot {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
